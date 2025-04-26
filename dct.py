@@ -5,10 +5,9 @@ class DCTSteganography:
     def __init__(self, block_size=8):
         self.block_size = block_size
         
-    def embed_bit(self, block, bit, alpha=30):  # Увеличили силу встраивания
+    def embed_bit(self, block, bit, alpha=30):
         dct_block = cv2.dct(np.float32(block))
         
-        # Используем две позиции для надежности
         if bit == 1:
             dct_block[4,3] = abs(alpha)
             dct_block[3,4] = abs(alpha)
